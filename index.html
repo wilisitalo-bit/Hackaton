@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terror Memory - Início</title>
+
+    <!-- Fonte temática de Halloween -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <audio id="musicaFundo" loop>
+    <source src="audio/musica-terror.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Cenário da floresta assombrada -->
+<div class="floresta" aria-hidden="true"></div>
+
+<!-- Camadas de neblina -->
+<div class="neblina neblina-1" aria-hidden="true"></div>
+<div class="neblina neblina-2" aria-hidden="true"></div>
+
+<!-- Morcegos voando -->
+<!-- Morcegos voando em diferentes alturas -->
+<div class="grupo-morcegos morcegos-cima" aria-hidden="true">
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+</div>
+
+<div class="grupo-morcegos morcegos-meio" aria-hidden="true">
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+</div>
+
+<div class="grupo-morcegos morcegos-baixo" aria-hidden="true">
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+    <span>🦇</span>
+</div>
+
+    <!-- Elementos decorativos -->
+    <div class="decoracao decoracao-1" aria-hidden="true">🦇</div>
+    <div class="decoracao decoracao-2" aria-hidden="true">🎃</div>
+    <div class="decoracao decoracao-3" aria-hidden="true">🕷️</div>
+    <div class="decoracao decoracao-4" aria-hidden="true">🦇</div>
+
+    <div class="lua" aria-hidden="true">🌕</div>
+
+    <main class="container">
+
+    <button id="btnMusica" class="btn-musica">
+        🔇 ATIVAR MÚSICA
+    </button>
+
+        <header class="cabecalho">
+
+            <div class="simbolo">☠</div>
+
+            <h1>TERROR MEMORY</h1>
+
+            <p>O DESAFIO DAS SOMBRAS</p>
+
+            <div class="linha-decorativa"></div>
+
+        </header>
+
+        <section class="painel-inicial">
+
+            <div class="icone-terror">🎃</div>
+
+            <h2>PREPARE-SE PARA O TERROR!</h2>
+
+            <p>
+                Entre no mundo dos filmes de terror.
+                Encontre todos os pares antes que o tempo acabe!
+            </p>
+
+            <label for="nomeJogador">
+                NOME DO JOGADOR
+            </label>
+
+            <input
+                type="text"
+                id="nomeJogador"
+                placeholder="Digite seu nome..."
+                maxlength="20"
+                autocomplete="off"
+            >
+
+            <button id="btnIniciar">
+                <span>INICIAR JOGO</span>
+                <span class="icone-botao">☠</span>
+            </button>
+
+            <div class="aviso">
+                ⚠ Você está preparado para enfrentar seus medos?
+            </div>
+
+        </section>
+
+        <footer>
+
+            <p>Uma noite de terror está apenas começando...</p>
+
+            <span>☠ TERROR MEMORY ☠</span>
+
+        </footer>
+
+    </main>
+
+    <script src="js/inicio.js"></script>
+
+</body>
+</html>
