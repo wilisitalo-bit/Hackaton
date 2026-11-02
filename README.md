@@ -1,5 +1,8 @@
+## 🎮 Jogue agora!
 
-terror-memory.netlify.app
+Clique no botão abaixo para acessar o jogo:
+
+[![Jogar Terror Memory](https://img.shields.io/badge/🎃-JOGAR%20AGORA-orange?style=for-the-badge)](https://terror-memory.netlify.app/)
 
 # Hackaton
 
