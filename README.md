@@ -1,3 +1,5 @@
+[🎮 Acessar Terror Memory - Jogar Online](https://terror-memory-game.netlify.app)
+
 ## 🎮 Jogue agora!
 
 Clique no botão abaixo para acessar o jogo:
