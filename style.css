@@ -1,0 +1,1005 @@
+/* =====================================
+   TERROR MEMORY
+   IDENTIDADE VISUAL - HALLOWEEN
+===================================== */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* FUNDO PRINCIPAL */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            #381044 0%,
+            #170b20 45%,
+            #050308 100%
+        );
+
+    color: white;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    position: relative;
+
+}
+
+
+/* ILUMINAÇÃO AMBIENTE */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 0, 40, 0.08),
+            transparent 55%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* CONTAINER */
+
+.container {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================
+   CABEÇALHO
+===================================== */
+
+.cabecalho {
+
+    margin-top: 55px;
+
+    margin-bottom: 40px;
+
+    animation: aparecer 1.2s ease;
+
+}
+
+
+/* SÍMBOLO */
+
+.simbolo {
+
+    font-size: 35px;
+
+    color: #ff3030;
+
+    margin-bottom: 10px;
+
+    animation: flutuar 3s ease-in-out infinite;
+
+}
+
+
+/* TÍTULO */
+
+/* TÍTULO PRINCIPAL */
+.cabecalho h1 {
+    font-family: 'Creepster', cursive;
+    color: #ff3030;
+    font-size: 105px;
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 25px #ff0000,
+        0 0 50px rgba(255, 0, 0, 0.7);
+
+    animation: pulsar 3s infinite;
+}
+
+
+/* SUBTÍTULO */
+
+.cabecalho p {
+
+    color: #d8b4e8;
+
+    margin-top: 15px;
+
+    letter-spacing: 5px;
+
+    font-size: 13px;
+
+}
+
+
+/* LINHA DECORATIVA */
+
+.linha-decorativa {
+
+    width: 180px;
+
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff3030,
+        transparent
+    );
+
+    box-shadow: 0 0 12px red;
+
+}
+
+
+/* =====================================
+   PAINEL INICIAL
+===================================== */
+
+.painel-inicial {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    padding: 40px 35px;
+
+    background: rgba(15, 7, 22, 0.94);
+
+    border: 1px solid #8e234e;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 50, 0.15),
+        0 0 50px rgba(130, 0, 180, 0.15),
+        inset 0 0 25px rgba(100, 0, 120, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    animation: subir 1s ease;
+
+    transition: 0.4s;
+
+}
+
+
+.painel-inicial:hover {
+
+    border-color: #ff3030;
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 50, 0.3),
+        0 0 60px rgba(130, 0, 180, 0.2);
+
+}
+
+
+/* ÍCONE DO PAINEL */
+
+.icone-terror {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    filter: drop-shadow(0 0 12px orange);
+
+    animation: flutuar 3s ease-in-out infinite;
+
+}
+
+
+/* TÍTULO DO PAINEL */
+
+.painel-inicial h2 {
+
+    font-family: 'Creepster', cursive;
+    letter-spacing: 2px; 
+
+    color: #ff4545;
+
+    font-size: 21px;
+
+    margin-bottom: 20px;
+
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+
+}
+
+
+/* DESCRIÇÃO */
+
+.painel-inicial p {
+
+    font-size: 22px;
+    font-family: 'Creepster', cursive;
+    letter-spacing: 1px;
+
+    color: #d5c4dc;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* LABEL */
+
+.painel-inicial label {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-weight: bold;
+
+    color: #e7c9f0;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+
+}
+
+
+/* INPUT */
+
+.painel-inicial input {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #742c85;
+
+    border-radius: 8px;
+
+    background: #0c0711;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
+
+}
+
+
+.painel-inicial input::placeholder {
+
+    color: #8d7896;
+
+}
+
+
+.painel-inicial input:focus {
+
+    border-color: #ff3030;
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.4);
+
+}
+
+
+/* =====================================
+   BOTÃO INICIAR
+===================================== */
+
+button {
+
+    padding: 15px 25px;
+
+    border: 1px solid #ff4545;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #a51d35,
+        #6b102b
+    );
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.painel-inicial button {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+
+}
+
+
+.painel-inicial button:hover {
+
+    background: linear-gradient(
+        135deg,
+        #e52d4d,
+        #a51d35
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 15px red,
+        0 0 30px rgba(255, 0, 0, 0.3);
+
+}
+
+
+.icone-botao {
+
+    font-size: 20px;
+
+}
+
+
+/* AVISO */
+
+.aviso {
+
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    color: #a78bb5;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+/* =====================================
+   ELEMENTOS DECORATIVOS
+===================================== */
+
+.decoracao {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    animation: flutuar 5s ease-in-out infinite;
+
+}
+
+
+.decoracao-1 {
+
+    top: 15%;
+
+    left: 8%;
+
+    animation-delay: 0s;
+
+}
+
+
+.decoracao-2 {
+
+    top: 60%;
+
+    right: 8%;
+
+    font-size: 55px;
+
+    animation-delay: 1s;
+
+}
+
+
+.decoracao-3 {
+
+    bottom: 15%;
+
+    left: 12%;
+
+    animation-delay: 2s;
+
+}
+
+
+.decoracao-4 {
+
+    top: 25%;
+
+    right: 15%;
+
+    animation-delay: 3s;
+
+}
+
+
+/* LUA */
+
+.lua {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 50px;
+
+    font-size: 65px;
+
+    opacity: 0.6;
+
+    filter: drop-shadow(0 0 25px #b68cff);
+
+    animation: pulsar-lua 5s infinite;
+
+}
+
+
+/* =====================================
+   RODAPÉ
+===================================== */
+
+footer {
+
+    margin-top: 55px;
+
+    color: #8d7896;
+
+    font-size: 13px;
+
+}
+
+
+footer span {
+
+    display: block;
+
+    margin-top: 12px;
+
+    color: #a51d35;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================
+   ANIMAÇÕES
+===================================== */
+
+@keyframes pulsar {
+
+    0%, 100% {
+
+        text-shadow:
+            0 0 10px red,
+            0 0 25px red;
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 20px red,
+            0 0 45px red,
+            0 0 70px #ff3030;
+
+    }
+
+}
+
+
+@keyframes flutuar {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+@keyframes subir {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes pulsar-lua {
+
+    0%, 100% {
+
+        filter: drop-shadow(0 0 15px #b68cff);
+
+    }
+
+    50% {
+
+        filter: drop-shadow(0 0 35px #b68cff);
+
+    }
+
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+
+        margin-top: 65px;
+
+    }
+
+    .cabecalho h1 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    }
+
+    }
+
+    .cabecalho p {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+    .painel-inicial {
+
+        padding: 30px 20px;
+
+    }
+
+    .painel-inicial h2 {
+
+        font-size: 35px;
+
+    }
+
+    .decoracao {
+
+        font-size: 22px;
+
+    }
+
+    .lua {
+
+        top: 15px;
+
+        right: 15px;
+
+        font-size: 40px;
+
+    }
+
+}
+
+
+/* RESPEITAR USUÁRIOS QUE PREFEREM MENOS ANIMAÇÕES */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
+/* =====================================
+   CENÁRIO DA FLORESTA ASSOMBRADA
+===================================== */
+
+/* FLORESTA AO FUNDO */
+.floresta {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.95),
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse at bottom,
+            #160d1d,
+            transparent 70%
+        );
+}
+
+/* SILHUETAS DAS ÁRVORES */
+.floresta::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+
+    background:
+        linear-gradient(135deg, transparent 50%, #08060b 51%) 0 0 / 100px 180px,
+        linear-gradient(225deg, transparent 50%, #08060b 51%) 0 0 / 120px 200px;
+
+    opacity: 0.85;
+}
+
+/* NEBLINA */
+.neblina {
+    position: fixed;
+    width: 200%;
+    height: 180px;
+    left: -50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.12;
+    filter: blur(35px);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c5a5d8,
+        #ffffff,
+        #a58ab8,
+        transparent
+    );
+
+    border-radius: 50%;
+}
+
+/* PRIMEIRA CAMADA */
+.neblina-1 {
+    bottom: 10%;
+    animation: moverNeblina 25s linear infinite;
+}
+
+/* SEGUNDA CAMADA */
+.neblina-2 {
+    bottom: 25%;
+    opacity: 0.08;
+    animation: moverNeblina 35s linear infinite reverse;
+}
+
+/* MORCEGOS */
+/* =====================================
+   MORCEGOS VOANDO PELO CENÁRIO
+===================================== */
+
+.grupo-morcegos {
+    position: fixed;
+    left: -180px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.grupo-morcegos span {
+    display: inline-block;
+    animation: baterAsas 0.5s ease-in-out infinite alternate;
+}
+
+/* PARTE SUPERIOR */
+.morcegos-cima {
+    top: 15%;
+    font-size: 25px;
+    opacity: 0.55;
+    animation: voarMorcegos 22s linear infinite;
+}
+
+/* PARTE DO MEIO */
+.morcegos-meio {
+    top: 48%;
+    font-size: 34px;
+    opacity: 0.7;
+    animation: voarMorcegos 17s linear infinite;
+    animation-delay: -8s;
+}
+
+/* PARTE INFERIOR */
+.morcegos-baixo {
+    top: 78%;
+    font-size: 27px;
+    opacity: 0.5;
+    animation: voarMorcegos 25s linear infinite;
+    animation-delay: -14s;
+}
+
+/* VARIAÇÃO DE ALTURA DOS MORCEGOS */
+.grupo-morcegos span:nth-child(even) {
+    transform: translateY(15px);
+}
+
+.grupo-morcegos span:nth-child(3n) {
+    font-size: 1.3em;
+}
+
+/* MOVIMENTO PELO CENÁRIO */
+@keyframes voarMorcegos {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 400px));
+    }
+}
+
+/* BATIMENTO DAS ASAS */
+@keyframes baterAsas {
+    from {
+        scale: 1 0.8;
+    }
+
+    to {
+        scale: 1 1.1;
+    }
+}
+
+/* ANIMAÇÃO DA NEBLINA */
+@keyframes moverNeblina {
+    0% {
+        transform: translateX(-15%);
+    }
+
+    50% {
+        transform: translateX(15%);
+    }
+
+    100% {
+        transform: translateX(-15%);
+    }
+}
+
+/* ANIMAÇÃO DOS MORCEGOS */
+@keyframes voarMorcegos {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 300px));
+    }
+}
+/* =====================================
+   AUMENTAR ELEMENTOS DECORATIVOS
+===================================== */
+
+/* MORCEGOS PARADOS */
+.decoracao-1,
+.decoracao-4 {
+    font-size: 60px;
+    opacity: 0.7;
+}
+
+/* ABÓBORA */
+.decoracao-2 {
+    font-size: 85px;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 18px orange);
+}
+
+/* ARANHA */
+.decoracao-3 {
+    font-size: 60px;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 12px purple);
+}
+
+/* LUA */
+.lua {
+    font-size: 90px;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 35px #b68cff);
+}
+
+/* AJUSTES PARA CELULARES */
+@media (max-width: 600px) {
+    .decoracao-1,
+    .decoracao-4 {
+        font-size: 38px;
+    }
+
+    .decoracao-2 {
+        font-size: 65px;
+    }
+
+    .decoracao-3 {
+        font-size: 40px;
+    }
+
+    .lua {
+        font-size: 55px;
+    }
+}
+/* ELEMENTOS DECORATIVOS — TAMANHO EXTRA */
+
+.decoracao-1,
+.decoracao-4 {
+    font-size: 80px;
+}
+
+.decoracao-2 {
+    font-size: 110px;
+}
+
+.decoracao-3 {
+    font-size: 80px;
+}
+
+.lua {
+    font-size: 115px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .decoracao-1,
+    .decoracao-4 {
+        font-size: 50px;
+    }
+
+    .decoracao-2 {
+        font-size: 80px;
+    }
+
+    .decoracao-3 {
+        font-size: 55px;
+    }
+
+    .lua {
+        font-size: 70px;
+    }
+}
+/* BOTÃO DE CONTROLE DA MÚSICA */
+.btn-musica {
+    position: relative;
+    z-index: 10;
+    margin: 20px auto;
+    padding: 12px 25px;
+
+    background: rgba(0, 0, 0, 0.8);
+    color: #ff3030;
+
+    border: 2px solid #ff3030;
+    border-radius: 8px;
+
+    font-family: 'Creepster', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.btn-musica:hover {
+    background: #ff3030;
+    color: #000;
+
+    box-shadow:
+        0 0 15px #ff0000,
+        0 0 30px #ff0000;
+
+    transform: scale(1.08);
+}

@@ -1,0 +1,581 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #24102e, #08050d 75%);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.cabecalho {
+    margin: 25px 0;
+}
+
+.cabecalho h1 {
+    color: #ff3030;
+    font-size: 42px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px red;
+}
+
+.cabecalho p {
+    color: #c9a6d8;
+    margin: 10px 0 20px;
+    letter-spacing: 3px;
+}
+
+#saudacao {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.painel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: rgba(20, 10, 28, 0.9);
+    border: 1px solid #742c85;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.info {
+    background: #100b16;
+    border: 1px solid #742c85;
+    border-radius: 8px;
+    padding: 12px 25px;
+    min-width: 110px;
+}
+
+.info span {
+    display: block;
+    color: #c9a6d8;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.info strong {
+    font-size: 24px;
+    color: #ff4040;
+}
+
+#mensagem {
+    margin: 25px 0;
+    color: #e6c9ef;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 700px;
+    margin: 25px auto;
+}
+
+.carta {
+    height: 150px;
+    background: linear-gradient(145deg, #351342, #13091b);
+    border: 2px solid #a51d35;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(165, 29, 53, 0.3);
+}
+
+.carta:hover:not(.virada):not(.combinada) {
+    transform: scale(1.04);
+    box-shadow: 0 0 18px red;
+}
+
+.carta.virada {
+    background: #e4d9e8;
+    color: #1a0b20;
+    border-color: white;
+    cursor: default;
+}
+
+.carta.combinada {
+    background: #45304c;
+    color: white;
+    border-color: #8fbd65;
+    opacity: 0.65;
+    cursor: default;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #a51d35;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e52d4d;
+    transform: scale(1.05);
+}
+
+footer {
+    margin-top: 40px;
+    color: #8d7896;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+    .cabecalho h1 {
+        font-size: 30px;
+    }
+
+    .tabuleiro {
+        gap: 8px;
+    }
+
+    .carta {
+        height: 85px;
+        font-size: 30px;
+    }
+
+    .info {
+        min-width: 85px;
+        padding: 10px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+}
+
+
+/* EFEITO DE GIRO DAS CARTAS */
+
+.carta {
+    height: 150px;
+    perspective: 1000px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.carta-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.carta.virada .carta-interno {
+    transform: rotateY(180deg);
+}
+
+.carta-verso,
+.carta-frente {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #a51d35;
+    border-radius: 10px;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    font-size: 45px;
+}
+
+.carta-verso {
+    background: linear-gradient(145deg, #351342, #13091b);
+    color: white;
+}
+
+.carta-frente {
+    background: #e4d9e8;
+    color: #1a0b20;
+    transform: rotateY(180deg);
+}
+
+.carta.combinada .carta-frente {
+    border-color: #8fbd65;
+    background: #45304c;
+    color: white;
+}
+/*
+.carta:hover .carta-interno {
+    filter: drop-shadow(0 0 10px red);
+}
+*/
+@media (max-width: 600px) {
+    .carta {
+        height: 85px;
+    }
+
+    .carta-verso,
+    .carta-frente {
+        font-size: 30px;
+    }
+}
+/* =================================
+   CENÁRIO DA FLORESTA ASSOMBRADA
+================================= */
+
+.floresta {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(to top, rgba(0,0,0,.95), transparent 65%),
+        radial-gradient(ellipse at bottom, #160d1d, transparent 70%);
+}
+
+.floresta::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+
+    background:
+        linear-gradient(135deg, transparent 50%, #08060b 51%) 0 0 / 100px 180px,
+        linear-gradient(225deg, transparent 50%, #08060b 51%) 0 0 / 120px 200px;
+
+    opacity: .85;
+}
+
+/* NEBLINA */
+
+.neblina {
+    position: fixed;
+    width: 200%;
+    height: 180px;
+    left: -50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .12;
+    filter: blur(35px);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c5a5d8,
+        #fff,
+        #a58ab8,
+        transparent
+    );
+
+    border-radius: 50%;
+}
+
+.neblina-1 {
+    bottom: 10%;
+    animation: moverNeblina 25s linear infinite;
+}
+
+.neblina-2 {
+    bottom: 25%;
+    opacity: .08;
+    animation: moverNeblina 35s linear infinite reverse;
+}
+
+@keyframes moverNeblina {
+    0% { transform: translateX(-15%); }
+    50% { transform: translateX(15%); }
+    100% { transform: translateX(-15%); }
+}
+
+/* MORCEGOS */
+
+.grupo-morcegos {
+    position: fixed;
+    left: -180px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.grupo-morcegos span {
+    display: inline-block;
+    animation: baterAsas 0.5s ease-in-out infinite alternate;
+}
+
+.morcegos-cima {
+    top: 15%;
+    font-size: 25px;
+    opacity: .55;
+    animation: voarMorcegos 22s linear infinite;
+}
+
+.morcegos-meio {
+    top: 48%;
+    font-size: 34px;
+    opacity: .7;
+    animation: voarMorcegos 17s linear infinite;
+    animation-delay: -8s;
+}
+
+.morcegos-baixo {
+    top: 78%;
+    font-size: 27px;
+    opacity: .5;
+    animation: voarMorcegos 25s linear infinite;
+    animation-delay: -14s;
+}
+
+.grupo-morcegos span:nth-child(even) {
+    transform: translateY(15px);
+}
+
+.grupo-morcegos span:nth-child(3n) {
+    font-size: 1.3em;
+}
+
+@keyframes voarMorcegos {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 400px)); }
+}
+
+@keyframes baterAsas {
+    from { scale: 1 0.8; }
+    to { scale: 1 1.1; }
+}
+
+/* DECORAÇÕES */
+
+.decoracao {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 0 12px rgba(255, 80, 0, .3));
+}
+
+.decoracao-1 {
+    top: 15%;
+    left: 8%;
+    font-size: 80px;
+}
+
+.decoracao-2 {
+    top: 60%;
+    right: 8%;
+    font-size: 110px;
+}
+
+.decoracao-3 {
+    bottom: 15%;
+    left: 12%;
+    font-size: 80px;
+}
+
+.decoracao-4 {
+    top: 25%;
+    right: 15%;
+    font-size: 80px;
+}
+
+/* LUA */
+
+.lua {
+    position: fixed;
+    top: 35px;
+    right: 50px;
+    z-index: 1;
+    font-size: 115px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 25px rgba(255, 255, 180, .5));
+}
+
+/* CONTEÚDO DO JOGO NA FRENTE DO CENÁRIO */
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+    .decoracao-1,
+    .decoracao-4 {
+        font-size: 50px;
+    }
+
+    .decoracao-2 {
+        font-size: 80px;
+    }
+
+    .decoracao-3 {
+        font-size: 55px;
+    }
+
+    .lua {
+        font-size: 70px;
+        right: 15px;
+    }
+}
+/* FONTES TEMÁTICAS DE HALLOWEEN */
+
+/* Título principal */
+.cabecalho h1 {
+    font-family: 'Creepster', cursive;
+    color: #ff3030;
+    font-size: 85px;
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 25px #ff0000,
+        0 0 50px rgba(255, 0, 0, 0.7);
+}
+
+/* Subtítulo */
+.cabecalho p {
+    font-family: 'Creepster', cursive;
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+/* Saudação ao jogador */
+#saudacao {
+    font-family: 'Creepster', cursive;
+    font-size: 32px;
+}
+
+/* Mensagem do jogo */
+#mensagem {
+    font-family: 'Creepster', cursive;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+/* Botões */
+.botoes button {
+    font-family: 'Creepster', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+/* Botão de controle da música */
+.btn-musica {
+    font-family: 'Creepster', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+/* Indicadores */
+.info span {
+    font-family: 'Creepster', cursive;
+    font-size: 20px;
+}
+
+/* Rodapé */
+footer p {
+    font-family: 'Creepster', cursive;
+    font-size: 20px;
+}
+/* TELA DE RESULTADO */
+.tela-resultado {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.90);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Conteúdo da mensagem */
+.conteudo-resultado {
+    background: linear-gradient(145deg, #351342, #13091b);
+    border: 3px solid #ff3030;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 85%;
+    box-shadow: 0 0 30px red;
+    animation: aparecerVitoria 0.8s ease;
+}
+
+/* Título */
+.conteudo-resultado h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 85px;
+    color: #ff3030;
+    text-shadow: 0 0 15px red;
+}
+
+/* Mensagens */
+.conteudo-resultado p {
+    font-family: 'Creepster', cursive;
+    font-size: 85px;
+    color: white;
+    margin: 20px 0;
+}
+
+/* Botão */
+.conteudo-resultado button {
+    font-family: 'Creepster', cursive;
+    font-size: 25px;
+    padding: 15px 25px;
+    background: #a51d35;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.conteudo-resultado button:hover {
+    background: #ff3030;
+    transform: scale(1.05);
+}
+
+/* Animação de entrada */
+@keyframes aparecerVitoria {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
